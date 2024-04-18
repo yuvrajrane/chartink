@@ -5,6 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
+  <sap2010:Annotation.AnnotationText>UPTF00000088eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8SW5pdGlhbFRvb2x0aXA+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8VmVyc2lvbj5rX19CYWNraW5nRmllbGQiOjF9</sap2010:Annotation.AnnotationText>
   <sap:VirtualizedContainerService.HintSize>1101,6933</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
@@ -163,7 +164,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="354,262" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Enter chartink URL to get data" Title="ChartInk URL">
+            <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="354,262" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Enter chartink URL to get data from website" Title="ChartInk URL">
               <ui:InputDialog.Result>
                 <OutArgument x:TypeArguments="x:String">[URLToSearch]</OutArgument>
               </ui:InputDialog.Result>
