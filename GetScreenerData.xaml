@@ -1,0 +1,238 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="UpdateScreenerData" this:UpdateScreenerData.IN_StockSymbol="DAMODARIND" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="IN_StockSymbol" Type="InArgument(x:String)" />
+    <x:Property Name="ExtractedStockPE" Type="OutArgument(x:String)" />
+    <x:Property Name="ROCE" Type="OutArgument(x:String)" />
+    <x:Property Name="ROE" Type="OutArgument(x:String)" />
+    <x:Property Name="SalesGr" Type="OutArgument(x:String)" />
+    <x:Property Name="ProfitGr" Type="OutArgument(x:String)" />
+    <x:Property Name="Debt" Type="OutArgument(x:String)" />
+    <x:Property Name="MarketCap" Type="OutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1101,2706</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>UpdateScreenerData_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>UiPath.Excel.Model</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Activities.System.Collections</x:String>
+      <x:String>System.Security</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="UpdateScreenerData" sap:VirtualizedContainerService.HintSize="568,2641" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="IfOpenedByAppBrowser" DisplayName="Use Browser Edge: Core Watchlist feed - Screener" sap:VirtualizedContainerService.HintSize="506,2530" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="Always" ScopeGuid="4cca2678-8650-4584-a0e4-52b76003a140" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="472,2313" sap2010:WorkflowViewState.IdRef="Sequence_10">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NGetText DisplayName="Get MarketCap" sap:VirtualizedContainerService.HintSize="410,157" sap2010:WorkflowViewState.IdRef="NGetText_9" ScopeIdentifier="4cca2678-8650-4584-a0e4-52b76003a140" TextString="[MarketCap]" Timeout="2" Version="V3">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.screener.in/company/DAMODARIND/" CvTextArea="431, 405, 28, 14" CvType="AnyWordGroup" DesignTimeRectangle="432, 403, 26, 19" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'134'" FullSelectorArgument="&lt;webctrl class='number' parentid='top-ratios' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='number' parentid='top-ratios' tag='SPAN' type='' /&gt;" Guid="60732ad6-446d-4820-af84-88cc06caeade" ImageBase64="" InformativeScreenshot="804d907f0cf27d31f02c71f37a957aaf.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='* - Screener' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target CvTextArea="167, 405, 82, 17" CvTextArgument="Market Cap" CvType="Text" DesignTimeRectangle="168, 401, 81, 23" ElementType="Text" FriendlyName="'Market Cap'" FullSelectorArgument="&lt;webctrl parentid='top-ratios' tag='SPAN' visibleinnertext='Market Cap' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='top-ratios' tag='SPAN' visibleinnertext='Market Cap' type='' class='name' aaname='          Market Cap        ' check:text='Market Cap' /&gt;" SearchSteps="Selector, FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetText.Target>
+            </uix:NGetText>
+            <If Condition="[string.IsNullOrEmpty(MarketCap)]" sap:VirtualizedContainerService.HintSize="410,352" sap2010:WorkflowViewState.IdRef="If_4">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,170" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NGoToUrl DisplayName="Go To URL" sap:VirtualizedContainerService.HintSize="334,82" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Url="[&quot;https://www.screener.in/company/&quot;+IN_StockSymbol]" Version="V3" />
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_14" />
+              </If.Else>
+            </If>
+            <uix:NGetText DisplayName="Get MarketCap" sap:VirtualizedContainerService.HintSize="410,157" sap2010:WorkflowViewState.IdRef="NGetText_11" ScopeIdentifier="4cca2678-8650-4584-a0e4-52b76003a140" TextString="[MarketCap]" Timeout="2" Version="V3">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.screener.in/company/DAMODARIND/" CvTextArea="431, 405, 28, 14" CvType="AnyWordGroup" DesignTimeRectangle="432, 403, 26, 19" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'134'" FullSelectorArgument="&lt;webctrl class='number' parentid='top-ratios' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='number' parentid='top-ratios' tag='SPAN' type='' /&gt;" Guid="60732ad6-446d-4820-af84-88cc06caeade" ImageBase64="" InformativeScreenshot="804d907f0cf27d31f02c71f37a957aaf.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='* - Screener' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="167, 405, 82, 17" CvTextArgument="Market Cap" CvType="Text" DesignTimeRectangle="168, 401, 81, 23" ElementType="Text" FriendlyName="'Market Cap'" FullSelectorArgument="&lt;webctrl parentid='top-ratios' tag='SPAN' visibleinnertext='Market Cap' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='top-ratios' tag='SPAN' visibleinnertext='Market Cap' type='' class='name' aaname='          Market Cap        ' check:text='Market Cap' /&gt;" SearchSteps="Selector, FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetText.Target>
+            </uix:NGetText>
+            <If Condition="[not string.IsNullOrEmpty(MarketCap)]" sap:VirtualizedContainerService.HintSize="410,1412" sap2010:WorkflowViewState.IdRef="If_3">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,1230" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NGetText DisplayName="Get Text PE" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NGetText_10" ScopeIdentifier="4cca2678-8650-4584-a0e4-52b76003a140" TextString="[ExtractedStockPE]" Version="V3">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="https://www.screener.in/company/DAMODARIND/" CvElementArea="154, 435, 343, 51" CvType="InputBox" DesignTimeRectangle="450, 451, 32, 19" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'55.4'" FullSelectorArgument="&lt;webctrl aaname='          Stock P/E        ' class='name' parentid='top-ratios' tag='SPAN' visibleinnertext='Stock P/E' /&gt;&lt;nav up='1' /&gt;&lt;webctrl class='number' parentid='top-ratios' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='number' parentid='top-ratios' tag='SPAN' type='' /&gt;" Guid="e9490871-f544-497e-bb85-1547cc33da79" ImageBase64="" InformativeScreenshot="df743136bfc8c2f08dd1cc40c035d91c.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='* - Screener' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                    </uix:NGetText.Target>
+                  </uix:NGetText>
+                  <uix:NGetText DisplayName="Get ROCE" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="4cca2678-8650-4584-a0e4-52b76003a140" TextString="[ROCE]" Timeout="2" Version="V3">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="https://www.screener.in/company/RAJESHEXPO/consolidated/" CvTextArea="435, 500, 31, 14" CvType="AnyWordGroup" DesignTimeRectangle="436, 498, 29, 19" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'10.9'" FullSelectorArgument="&lt;webctrl aaname='*ROCE*' class='name' parentid='top-ratios' tag='SPAN' /&gt;&lt;nav up='1' /&gt;&lt;webctrl class='number' parentid='top-ratios' tag='SPAN' /&gt;" Guid="588a72a6-1066-45f1-9815-a031e577dfb6" ImageBase64="" InformativeScreenshot="e5e758634e4b8715a09606717bffba26.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='* - Screener' url='https://www.screener.in/company/*' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive" />
+                    </uix:NGetText.Target>
+                  </uix:NGetText>
+                  <uix:NGetText DisplayName="Get ROE" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NGetText_4" ScopeIdentifier="4cca2678-8650-4584-a0e4-52b76003a140" TextString="[ROE]" Timeout="1" Version="V3">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="https://www.screener.in/company/RAJESHEXPO/consolidated/" CvTextArea="797, 500, 31, 14" CvType="AnyWordGroup" DesignTimeRectangle="798, 498, 29, 19" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'10.5'" FullSelectorArgument="&lt;webctrl aaname='*ROE*' class='name' parentid='top-ratios' tag='SPAN' /&gt;&lt;nav up='1' /&gt;&lt;webctrl class='number' parentid='top-ratios' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='number' parentid='top-ratios' tag='SPAN' type='' /&gt;" Guid="4fe48b60-d128-4e7b-92ac-4367ef81d31f" ImageBase64="" InformativeScreenshot="a86771f3b1646034c45449c06ab1c498.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='* - Screener' url='https://www.screener.in/company/*' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive" />
+                    </uix:NGetText.Target>
+                  </uix:NGetText>
+                  <uix:NGetText DisplayName="Get SalesGrowth" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="4cca2678-8650-4584-a0e4-52b76003a140" TextString="[SalesGr]" Timeout="1" Version="V3">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="https://www.screener.in/company/RAJESHEXPO/consolidated/" CvElementArea="514, 529, 345, 51" CvType="InputBox" DesignTimeRectangle="798, 545, 29, 19" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'18.8'" FullSelectorArgument="&lt;webctrl aaname='*Sales growth*' class='name' parentid='top-ratios' tag='SPAN' /&gt;&lt;nav up='1' /&gt;&lt;webctrl class='number' parentid='top-ratios' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='number' parentid='top-ratios' tag='SPAN' type='' /&gt;" Guid="633b2e79-142d-4e97-8dcc-218f08b2a4fd" InformativeScreenshot="5e45c656c4b6745cc4461073a95d370a.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='* - Screener' url='https://www.screener.in/company/*' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                    </uix:NGetText.Target>
+                  </uix:NGetText>
+                  <uix:NGetText DisplayName="Get ProfitGrowth" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NGetText_6" ScopeIdentifier="4cca2678-8650-4584-a0e4-52b76003a140" TextString="[ProfitGr]" Timeout="1" Version="V3">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="https://www.screener.in/company/RAJESHEXPO/consolidated/" CvTextArea="1156, 546, 34, 15" CvType="AnyWordGroup" DesignTimeRectangle="1157, 545, 32, 19" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'5.43'" FullSelectorArgument="&lt;webctrl aaname='*Profit growth*' class='name' parentid='top-ratios' tag='SPAN' /&gt;&lt;nav up='1' /&gt;&lt;webctrl class='number' parentid='top-ratios' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='number' parentid='top-ratios' tag='SPAN' type='' /&gt;" Guid="7e383176-001e-4dc1-8142-5a8ee7f8ac3a" ImageBase64="" InformativeScreenshot="c067dcbc4a7dc9a6d7b8707652b81a3e.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='* - Screener' url='https://www.screener.in/company/*' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                    </uix:NGetText.Target>
+                  </uix:NGetText>
+                  <uix:NGetText DisplayName="Get Debt" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NGetText_7" ScopeIdentifier="4cca2678-8650-4584-a0e4-52b76003a140" TextString="[Debt]" Timeout="1" Version="V3">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="https://www.screener.in/company/RAJESHEXPO/consolidated/" CvElementArea="153, 530, 344, 50" CvType="InputBox" DesignTimeRectangle="431, 545, 27, 19" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'627'" FullSelectorArgument="&lt;webctrl aaname='*Debt*' class='name' parentid='top-ratios' tag='SPAN' /&gt;&lt;nav up='1' /&gt;&lt;webctrl class='number' parentid='top-ratios' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='number' parentid='top-ratios' tag='SPAN' type='' /&gt;" Guid="0501b8fe-aea3-4a56-a1c7-9bfc1ee446fb" InformativeScreenshot="6d04a575ed526b0c320262b7b4ec1279.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='* - Screener' url='https://www.screener.in/company/*' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                    </uix:NGetText.Target>
+                  </uix:NGetText>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap:VirtualizedContainerService.HintSize="300,80" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1936, 1048" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAABUQAAAVEBKaLAYAAAAkxJREFUWEftl89OE1EYxa/zr9NWE0hcQP8gOpQFUlDGoqkNFt1oVWpdgCjBhSwsDQ0QI9EYEhBiQsvCt/EVfAFfp54zTpsuPkPIzOzmJr/M7Xwn3zl3cpPeq14090IH4wrQwbXq5+SDR/v28tKu/ZhwXmmnXNY8jdQgKBgaDVY66Y2DP6M9ieJre8kLITUIAgZXb4Lc8if7i2ROpp+Y76kRmwTBD2ABp7Jtn0jm5GbZ3KFGbBKEoQCFh037VDInk2WzTY3YJAiRB/ANLiL8AH5j7m5uMBpIsEZNAoQegI3TI+PqRu0oVX96mGwMw3esUQNsEF4ADK6eq8ssbtpbe79HehKsQZMFDBF6AH5ip9iwDiRzwho0U+AqiCRAYbZufZXMCWte08sGwKDBRUQTAONSOzuKAOnkqJpYOU80X54n28PUf6ZatyqJaWqAt7OjCJBxqvra1q90T6LcSuxDM9jZUQRw8ve0lmRO3E3rGJrBzo4iQCHnam3JnCxsWKe+MA4QB4gDxAHiAJEFcDJz2rZkTu6sWSe+kE2nbj///4mINWr62vsf7CPJnORd8yM0DsD1SKnaWFE7HJvTzkAHdPkcn9d+6Lp64wv5bziJ62Qj7xrfcwvGWfau0SWc8x1rnkap1EBbMo4nFlEvGV3Q4Tw7b3xDvQbo7d1SZ8AzQLO34J3/XAVVkAE8D1wHJfAKrAPqCOd8xxo1PMhIWvakB73oSe9/12jANFwpP3cf/qY5V08dT0VszOM3P3VfxznfsUZN/wQladmTXvBU+l9+x+Q1s05rCQAAAABJRU5ErkJggg==" InformativeScreenshot="cdb3a10640b18e9ba31ff221c098d002.jpg" Selector="&lt;html app='msedge.exe' title='* - Screener' /&gt;" Title="Rajshree Sugars &amp; Chemicals Ltd financial results and price chart - Screener" Url="[&quot;https://www.screener.in/company/&quot;+IN_StockSymbol+&quot;/consolidated/&quot;]" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
